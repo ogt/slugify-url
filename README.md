@@ -18,6 +18,10 @@ slugify-url maps urls to a sanitized string that can be used as a filename and s
    + skipprotocol default true
    + skipuserpass default true
 
+For example 
+ - https://www.odesk.com/mc/ => www.odesk.com!mc
+ - http://www.genecards.org/cgi-bin/carddisp.pl?gene=STH => www.genecards.org!cgi-bin!carddisp.pl?gene=STH
+ - http://odysseas:secret@www.mysite.com/test.html => www.mysite.com/test.html
 
 ## Installation 
 
