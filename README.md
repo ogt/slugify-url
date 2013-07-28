@@ -1,4 +1,4 @@
-Maps urls to simplified strings usable as filenames
+Converts urls to simplified strings
 ==
 [![Build Status](https://travis-ci.org/ogt/slugify-url.png)](https://travis-ci.org/ogt/slugify-url)
 
