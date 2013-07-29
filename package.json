@@ -1,7 +1,7 @@
 {
   "name": "slugify-url",
   "description": "Maps urls to simplified strings usable as filenames",
-  "keywords": [ 'convert', 'url','slug', 'sanitize', 'filename'],
+  "keywords": [ "convert", "url","slug", "sanitize", "filename"],
   "version": "1.0.0",
   "repository": {
     "url": "git://github.com/ogt/slugify-url"
