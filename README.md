@@ -7,7 +7,7 @@ Converts urls to simplified strings
 slugify-url maps urls to a sanitized string that can be used as a filename and serves as a good mnemonic of the original url even though it is not reversible
 
 
-#Description
+## Description
 
  - It skips the protocol and user/password if provided part from the URL (http:// or https:// or <protocol>://<user>:<password>@ )
  - It maps slashes to !
