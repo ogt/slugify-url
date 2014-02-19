@@ -5,6 +5,7 @@ module.exports = slugify_url;
 var defaultOptions = {
 	slashChar: '!',
 	maxLength: 100,
+	unixOnly: false,  /* if true do not care for windows compatibility.. any non / char is ok */
 	skipProtocol: true,
 	skipUserPass: true
 };
@@ -44,8 +45,14 @@ function slugify_url(url, _options) {
 		sanitized = sanitized.replace(/[\w\-_\.]+(:[^@]+)?@/, '');
 	}
 	
-	/* skip slashes for slashChar */
+	/* replace slashes with slashChar */
 	sanitized = sanitized.replace(/\//g, options.slashChar);
+	
+	/* replace windows invalid chars with slashChar */
+	/* based on http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29  */
+	if (!options.unixOnly) {
+		sanitized = sanitized.replace(/[<>:"/\\|?*]/g, options.slashChar);
+	}
 	
 	/* truncate to max length */
 	sanitized = sanitized.substr(0, options.maxLength);
