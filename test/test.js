@@ -20,8 +20,8 @@ var test = require("tap").test;
 var slugify_url = require("../index.js");
 
 test("test if slugify-url skips protocol and username/password", function (t) {
-	t.equal(slugify_url("https://www.odesk.com/mc/"), "www.odesk.com!mc!");
-	t.equal(slugify_url("https://www.odesk.com/mc/", {skipProtocol: false}), "https!!!www.odesk.com!mc!");
+	t.equal(slugify_url("https://www.odesk.com/mc/"), "www.odesk.com!mc");
+	t.equal(slugify_url("https://www.odesk.com/mc/", {skipProtocol: false}), "https!www.odesk.com!mc");
 	t.equal(slugify_url("https://admin:test@www.odesk.com"), "www.odesk.com");
 	t.end();
 });
@@ -35,5 +35,11 @@ test("test if slugify-url truncates to maximun length", function (t) {
 test("test if slugify-url fixes windows invalid characters", function (t) {
 	t.equal(slugify_url("https://www.odesk.com?q=a+b!c*d|e\"f'g/h<i>j\\k"), "www.odesk.com!q=a+b!c!d!e!f'g!h!i!j!k");
 	t.equal(slugify_url("https://www.odesk.com?q=a+b!c*d|e\"f'g/h<i>j\\k",{unixOnly: true}), "www.odesk.com?q=a+b!c*d|e\"f'g!h<i>j\\k");
+	t.end();
+});
+
+test("test that we don't have multiple slashchars in a row and none at the end", function(t) {
+	t.equal(slugify_url("https://www.odesk.com/?q=a||**b"), "www.odesk.com!q=a!b");
+	t.equal(slugify_url("https://www.odesk.com/?"), "www.odesk.com");
 	t.end();
 });

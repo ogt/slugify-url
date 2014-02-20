@@ -53,6 +53,16 @@ function slugify_url(url, _options) {
 	if (!options.unixOnly) {
 		sanitized = sanitized.replace(/[<>:"/\\|?*]/g, options.slashChar);
 	}
+
+	/* replace multiple occurences of the slashChar with just one */
+	if (options.slashChar.length > 0) {
+		sanitized = sanitized.replace(new RegExp('['+options.slashChar+']{2,}','g'),options.slashChar);
+	}
+
+	/* make sure we don't leave any slashChar in the end*/
+	if (options.slashChar.length > 0) {
+		sanitized = sanitized.replace(new RegExp('['+options.slashChar+']$'),'');
+	}
 	
 	/* truncate to max length */
 	sanitized = sanitized.substr(0, options.maxLength);

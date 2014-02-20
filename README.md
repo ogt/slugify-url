@@ -12,6 +12,8 @@ slugify-url maps urls to a sanitized string that can be used as a filename and s
  - It skips the protocol and user/password if provided part from the URL (http:// or https:// or <protocol>://<user>:<password>@ )
  - It maps slashes to !
  - Unless a unixOnly option is given it maps all windows invalid chars to !
+ - It collapses multiple !'s to a single !
+ - It omits ending !'s 
  - It truncates the URL to 100 chars
  - It includes an optional options argument that allows the user to override the behavior
    + slashchar char used to replace slashes - default !
