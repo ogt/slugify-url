@@ -26,7 +26,7 @@ For example
  - http://www.genecards.org/cgi-bin/carddisp.pl?gene=STH => www.genecards.org!cgi-bin!carddisp.pl!gene=STH
     or if unixOnly is true
    http://www.genecards.org/cgi-bin/carddisp.pl?gene=STH => www.genecards.org!cgi-bin!carddisp.pl?gene=STH
- - http://odysseas:secret@www.mysite.com/test.html => www.mysite.com/test.html
+ - http://odysseas:secret@www.mysite.com/test.html => www.mysite.com!test.html
 
 ## Installation 
 
